@@ -54,21 +54,34 @@
     gap:2rem;
     padding:clamp(4rem,12vh,8rem) 0 clamp(3rem,7vh,5rem);
   }
-  .eyebrow{
+  .name{
+    font-size:clamp(2.6rem,7.4vw,4.55rem);
+    font-weight:200;
+    line-height:.98;
+    letter-spacing:-.025em;
+    margin:0 0 .9rem;
+    font-variation-settings:"opsz" 60;
+  }
+  .name .ko{
+    font-size:.26em;
+    font-weight:300;
+    letter-spacing:.04em;
+    color:var(--ink-faint);
+    vertical-align:.62em;
+    margin-left:.55em;
+    white-space:nowrap;
+  }
+  .role{
+    margin:0 0 .35rem;
+    color:var(--ink-soft);
+  }
+  .place{
     font-family:var(--mono);
     font-size:.6875rem;
     letter-spacing:.14em;
     text-transform:uppercase;
     color:var(--ink-faint);
-    margin:0 0 1.1rem;
-  }
-  .name{
-    font-size:clamp(2.9rem,8.5vw,5.25rem);
-    font-weight:200;
-    line-height:.98;
-    letter-spacing:-.025em;
-    margin:0 0 1.85rem;
-    font-variation-settings:"opsz" 60;
+    margin:0 0 1.65rem;
   }
 
   .links{
@@ -99,31 +112,19 @@
     border-radius:50%;
   }
 
-  /* ── signature: SO(3) wireframe ─────────────────────────── */
+  /* ── signature: rotating dodecahedron wireframe ─────────── */
   .rail{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
-  .globe{
-    width:58px;
-    height:auto;
+  .solid{
+    width:66px;
+    height:66px;
     overflow:visible;
-    opacity:.75;
   }
-  .globe .frame{fill:none;stroke:var(--ink);stroke-width:.6;vector-effect:non-scaling-stroke}
-  .globe .lat{fill:none;stroke:var(--ink-faint);stroke-width:.5;vector-effect:non-scaling-stroke}
-  .globe .lon{fill:none;stroke:var(--ink);stroke-width:.5;vector-effect:non-scaling-stroke}
-  @keyframes spin-lon{
-    0%   {rx:60px}
-    25%  {rx:0px}
-    50%  {rx:60px}
-    75%  {rx:0px}
-    100% {rx:60px}
+  .solid line{
+    stroke:var(--ink);
+    stroke-width:.85;
+    stroke-linecap:round;
+    vector-effect:non-scaling-stroke;
   }
-  .globe .lon{animation:spin-lon 22s linear infinite}
-  .globe .lon:nth-of-type(1){animation-delay:0s}
-  .globe .lon:nth-of-type(2){animation-delay:-1.83s}
-  .globe .lon:nth-of-type(3){animation-delay:-3.67s}
-  .globe .lon:nth-of-type(4){animation-delay:-5.5s}
-  .globe .lon:nth-of-type(5){animation-delay:-7.33s}
-  .globe .lon:nth-of-type(6){animation-delay:-9.17s}
 
   /* ── sections ───────────────────────────────────────────── */
   .section{
@@ -221,10 +222,12 @@
 
   <header class="hero">
     <div>
-      <p class="eyebrow">김민준 · POSTECH</p>
-      <h1 class="name">Minjoon Kim</h1>
+      <h1 class="name">Minjoon Kim <span class="ko">김민준</span></h1>
+      <p class="role">Undergraduate researcher, Computer Vision Lab, POSTECH</p>
+      <p class="place">Pohang, South Korea</p>
       <ul class="links">
-        <li><a href="mailto:mjkmszr0613@gmail.com">Email</a></li>
+        <li><a href="mailto:mjkmszr0613@postech.ac.kr">mjkmszr0613@postech.ac.kr</a></li>
+        <li><a href="mailto:mjkmszr0613@gmail.com">mjkmszr0613@gmail.com</a></li>
         <li><a href="https://github.com/Mjk-123">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/minjoon-kim-252405407">LinkedIn</a></li>
       </ul>
@@ -238,23 +241,8 @@
   <section class="section">
     <div class="rail">
       <h2>Research</h2>
-      <!-- signature: an orthographic SO(3) wireframe, quietly turning -->
-      <svg class="globe" viewBox="0 0 140 140" aria-hidden="true">
-        <g transform="translate(70,70) rotate(-16)">
-          <circle class="frame" r="60"/>
-          <ellipse class="lat" rx="60" ry="0"/>
-          <ellipse class="lat" rx="55.4" ry="0" cy="-23"/>
-          <ellipse class="lat" rx="55.4" ry="0" cy="23"/>
-          <ellipse class="lat" rx="39" ry="0" cy="-45.6"/>
-          <ellipse class="lat" rx="39" ry="0" cy="45.6"/>
-          <ellipse class="lon" rx="60" ry="60"/>
-          <ellipse class="lon" rx="60" ry="60"/>
-          <ellipse class="lon" rx="60" ry="60"/>
-          <ellipse class="lon" rx="60" ry="60"/>
-          <ellipse class="lon" rx="60" ry="60"/>
-          <ellipse class="lon" rx="60" ry="60"/>
-        </g>
-      </svg>
+      <!-- signature: an orthographic dodecahedron wireframe, quietly turning -->
+      <svg class="solid" viewBox="-1.95 -1.95 3.9 3.9" aria-hidden="true"></svg>
     </div>
     <div class="body">
       <p>I'm a fourth-year math undergrad at POSTECH and an undergraduate researcher in the Computer Vision Lab, advised by Prof. Minsu Cho. I work on geometric representation learning for 3D vision.</p>
@@ -298,11 +286,11 @@
     <div class="body">
       <div class="entry">
         <p class="when">2025</p>
-        <p class="what"><strong>Silver Prize</strong><span>Korean National Mathematics Competition for University Students</span></p>
+        <p class="what"><strong>Silver Prize</strong><span>Mathematics Competition for University Students in Korea, KMS</span></p>
       </div>
       <div class="entry">
         <p class="when">2024</p>
-        <p class="what"><strong>Bronze Prize</strong><span>Korean National Mathematics Competition for University Students</span></p>
+        <p class="what"><strong>Bronze Prize</strong><span>Mathematics Competition for University Students in Korea, KMS</span></p>
       </div>
     </div>
   </section>
@@ -313,5 +301,57 @@
   </footer>
 
 </main>
+
+<script>
+(function(){
+  var svg = document.querySelector('.solid');
+  if (!svg) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var phi = (1 + Math.sqrt(5)) / 2, inv = 1 / phi;
+
+  var V = [];
+  [-1,1].forEach(function(a){ [-1,1].forEach(function(b){ [-1,1].forEach(function(c){ V.push([a,b,c]); }); }); });
+  [-1,1].forEach(function(a){ [-1,1].forEach(function(b){
+    V.push([0, a*inv, b*phi]); V.push([a*inv, b*phi, 0]); V.push([a*phi, 0, b*inv]);
+  }); });
+
+  /* edges are exactly the vertex pairs one edge length (2/phi) apart */
+  var E = [], L = 2 * inv;
+  for (var i = 0; i < V.length; i++) for (var j = i + 1; j < V.length; j++) {
+    if (Math.abs(Math.hypot(V[i][0]-V[j][0], V[i][1]-V[j][1], V[i][2]-V[j][2]) - L) < 1e-6) E.push([i,j]);
+  }
+
+  var lines = E.map(function(){ return svg.appendChild(document.createElementNS(NS, 'line')); });
+
+  /* spin about a 5-fold axis: the direction of a face centre */
+  var h = Math.hypot(1, phi), ax = 0, ay = 1/h, az = phi/h;
+  var ct = Math.cos(-0.62), st = Math.sin(-0.62);
+
+  function draw(th){
+    var c = Math.cos(th), s = Math.sin(th);
+    var P = V.map(function(v){
+      var d = (ax*v[0] + ay*v[1] + az*v[2]) * (1 - c);
+      var x = v[0]*c + (ay*v[2] - az*v[1])*s + ax*d;
+      var y = v[1]*c + (az*v[0] - ax*v[2])*s + ay*d;
+      var z = v[2]*c + (ax*v[1] - ay*v[0])*s + az*d;
+      return [x, y*ct - z*st, y*st + z*ct];
+    });
+    lines.forEach(function(l, k){
+      var A = P[E[k][0]], B = P[E[k][1]];
+      l.setAttribute('x1', A[0].toFixed(3)); l.setAttribute('y1', (-A[1]).toFixed(3));
+      l.setAttribute('x2', B[0].toFixed(3)); l.setAttribute('y2', (-B[1]).toFixed(3));
+      l.setAttribute('opacity', (0.2 + 0.7 * ((A[2] + B[2]) / 2 + 1.74) / 3.48).toFixed(3));
+    });
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) { draw(0.35); return; }
+  var t0 = null;
+  requestAnimationFrame(function step(t){
+    if (t0 === null) t0 = t;
+    draw((t - t0) / 20000 * 2 * Math.PI);
+    requestAnimationFrame(step);
+  });
+})();
+</script>
 </body>
 </html>
