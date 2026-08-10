@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minjoon Kim</title>
+<meta name="description" content="Minjoon Kim, undergraduate researcher in equivariant deep learning and 3D vision at POSTECH.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Minjoon Kim">
+<meta property="og:description" content="Undergraduate researcher in equivariant deep learning and 3D vision at POSTECH.">
+<meta property="og:image" content="portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23101010' stroke-width='6'/%3E%3Cellipse cx='50' cy='50' rx='16' ry='42' fill='none' stroke='%23101010' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#101010;
+    --ink-soft:#5c5c5c;
+    --ink-faint:#8e8e8e;
+    --rule:#e0e0e0;
+    --wash:#f7f7f6;
+    --serif:"Newsreader",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --gap:clamp(1.5rem,5vw,4.5rem);
+    --rail:8.5rem;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.62;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);transition:border-color .18s ease}
+  a:hover{border-bottom-color:var(--ink)}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:1px}
+
+  .wrap{max-width:56rem;margin:0 auto;padding:0 var(--gap)}
+
+  /* ── hero ───────────────────────────────────────────────── */
+  .hero{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:2rem;
+    padding:clamp(4rem,12vh,8rem) 0 clamp(3rem,7vh,5rem);
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.6875rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 1.1rem;
+  }
+  .name{
+    font-size:clamp(2.9rem,8.5vw,5.25rem);
+    font-weight:200;
+    line-height:.98;
+    letter-spacing:-.025em;
+    margin:0 0 1.85rem;
+    font-variation-settings:"opsz" 60;
+  }
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem 1.4rem;
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:.02em;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .links a{border-bottom-color:#c9c9c9}
+
+  /* ── portrait ───────────────────────────────────────────── */
+  .portrait{
+    margin:0;
+    justify-self:end;
+    width:clamp(132px,22vw,196px);
+  }
+  .portrait img{
+    display:block;
+    width:100%;
+    aspect-ratio:1;
+    object-fit:cover;
+    border-radius:50%;
+    filter:grayscale(1) contrast(1.04);
+    transition:filter .45s ease;
+  }
+  .portrait img:hover{filter:grayscale(0) contrast(1)}
+
+  /* ── signature: SO(3) wireframe ─────────────────────────── */
+  .rail{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
+  .globe{
+    width:58px;
+    height:auto;
+    overflow:visible;
+    opacity:.75;
+  }
+  .globe .frame{fill:none;stroke:var(--ink);stroke-width:.6;vector-effect:non-scaling-stroke}
+  .globe .lat{fill:none;stroke:var(--ink-faint);stroke-width:.5;vector-effect:non-scaling-stroke}
+  .globe .lon{fill:none;stroke:var(--ink);stroke-width:.5;vector-effect:non-scaling-stroke}
+  @keyframes spin-lon{
+    0%   {rx:60px}
+    25%  {rx:0px}
+    50%  {rx:60px}
+    75%  {rx:0px}
+    100% {rx:60px}
+  }
+  .globe .lon{animation:spin-lon 22s linear infinite}
+  .globe .lon:nth-of-type(1){animation-delay:0s}
+  .globe .lon:nth-of-type(2){animation-delay:-1.83s}
+  .globe .lon:nth-of-type(3){animation-delay:-3.67s}
+  .globe .lon:nth-of-type(4){animation-delay:-5.5s}
+  .globe .lon:nth-of-type(5){animation-delay:-7.33s}
+  .globe .lon:nth-of-type(6){animation-delay:-9.17s}
+
+  /* ── sections ───────────────────────────────────────────── */
+  .section{
+    display:grid;
+    grid-template-columns:var(--rail) 1fr;
+    gap:2rem;
+    padding:clamp(2.75rem,6vh,4rem) 0;
+    border-top:1px solid var(--rule);
+  }
+  .section > h2{
+    font-family:var(--mono);
+    font-size:.6875rem;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:.45rem 0 0;
+    align-self:start;
+  }
+  .body > p{margin:0 0 1.15rem;max-width:62ch}
+  .body > p:last-child{margin-bottom:0}
+
+  /* ── publications ───────────────────────────────────────── */
+  .pub{padding:0 0 1.75rem;max-width:62ch}
+  .pub:last-child{padding-bottom:0}
+  .pub h3{
+    font-size:1.1875rem;
+    font-weight:400;
+    line-height:1.32;
+    letter-spacing:-.01em;
+    margin:0 0 .35rem;
+  }
+  .authors{color:var(--ink-soft);margin:0 0 .5rem;font-size:.9375rem}
+  .authors .me{color:var(--ink);font-style:italic}
+  .venue{
+    font-family:var(--mono);
+    font-size:.6875rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    display:flex;
+    flex-wrap:wrap;
+    gap:.35rem .9rem;
+    margin:0 0 .6rem;
+  }
+  .venue .mark{
+    color:var(--ink);
+    border:1px solid var(--rule);
+    padding:.1rem .4rem;
+    background:var(--wash);
+  }
+  .abstract{font-size:.9375rem;color:var(--ink-soft);margin:0}
+
+  /* ── entries (education / experience) ───────────────────── */
+  .entry{display:grid;grid-template-columns:6.5rem 1fr;gap:1.25rem;padding:0 0 1.15rem;max-width:62ch}
+  .entry:last-child{padding-bottom:0}
+  .entry .when{font-family:var(--mono);font-size:.6875rem;letter-spacing:.05em;color:var(--ink-faint);padding-top:.42rem}
+  .entry .what{margin:0}
+  .entry .what strong{font-weight:500}
+  .entry .what span{display:block;color:var(--ink-soft);font-size:.9375rem}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:2.25rem 0 3.5rem;
+    font-family:var(--mono);
+    font-size:.6875rem;
+    letter-spacing:.06em;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  @media (max-width:720px){
+    :root{--rail:auto}
+    .hero{grid-template-columns:1fr;padding-top:3.25rem}
+    .portrait{justify-self:start;order:-1;margin-bottom:.35rem}
+    .rail{flex-direction:row;align-items:center;gap:.9rem}
+    .globe{width:34px}
+    .section{grid-template-columns:1fr;gap:1rem}
+    .section > h2{margin-top:0}
+    .entry{grid-template-columns:1fr;gap:.15rem}
+    .entry .when{padding-top:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">김민준 · POSTECH</p>
+      <h1 class="name">Minjoon Kim</h1>
+      <ul class="links">
+        <li><a href="mailto:mjkmszr0613@gmail.com">Email</a></li>
+        <li><a href="https://github.com/EDIT-GITHUB">GitHub</a></li>
+      </ul>
+    </div>
+
+    <figure class="portrait">
+      <img src="portrait.jpg" alt="Minjoon Kim" width="760" height="760" loading="eager">
+    </figure>
+  </header>
+
+  <section class="section">
+    <div class="rail">
+      <h2>Research</h2>
+      <!-- signature: an orthographic SO(3) wireframe, quietly turning -->
+      <svg class="globe" viewBox="0 0 140 140" aria-hidden="true">
+        <g transform="translate(70,70) rotate(-16)">
+          <circle class="frame" r="60"/>
+          <ellipse class="lat" rx="60" ry="0"/>
+          <ellipse class="lat" rx="55.4" ry="0" cy="-23"/>
+          <ellipse class="lat" rx="55.4" ry="0" cy="23"/>
+          <ellipse class="lat" rx="39" ry="0" cy="-45.6"/>
+          <ellipse class="lat" rx="39" ry="0" cy="45.6"/>
+          <ellipse class="lon" rx="60" ry="60"/>
+          <ellipse class="lon" rx="60" ry="60"/>
+          <ellipse class="lon" rx="60" ry="60"/>
+          <ellipse class="lon" rx="60" ry="60"/>
+          <ellipse class="lon" rx="60" ry="60"/>
+          <ellipse class="lon" rx="60" ry="60"/>
+        </g>
+      </svg>
+    </div>
+    <div class="body">
+      <p>I'm a fourth-year math undergrad at POSTECH and an undergraduate researcher in the Computer Vision Lab, advised by Prof. Minsu Cho. I work on geometric representation learning for 3D vision.</p>
+      <p>Shapes show up in arbitrary poses, half observed, and often symmetric enough that there isn't one right answer. Most models learn to cope with this from augmented data, which works until it doesn't. I'd rather put the rotation structure into the architecture so it holds by construction, and spend the model's capacity on the actual problem.</p>
+      <p>Lately that means spectral methods on SO(3) and on the sphere. I like them because you can see what's happening: an object's symmetry group tells you which components it can represent at all, so failures are something you read off instead of guess at. Orientation estimation is where I started. Registration, shape correspondence, and fracture assembly are what I'm looking at now.</p>
+      <p>I came to vision from pure math, and that's still how I read a problem.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Publications</h2>
+    <div class="body">
+      <article class="pub">
+        <h3>Distributional Estimation of 3D Object Orientation</h3>
+        <p class="authors"><span class="me">Minjoon Kim</span>, Chunghyun Park, Minsu Cho</p>
+        <p class="venue">
+          <span class="mark">NeurIPS 2026</span>
+          <span>Sydney, December 2026</span>
+        </p>
+        <p class="abstract">The canonical orientation of a 3D object usually isn't unique. Many objects admit several equally valid frames, and under rotational symmetry those frames form an orbit of the symmetry group, which no single-output regressor can represent. We predict a continuous multi-modal distribution over SO(3) instead, through a truncated Wigner-D expansion that is equivariant by construction and assumes nothing about which symmetry group an object has. It outperforms recent equivariant regressors and fixed-quotient classifiers on the ShapeNet orientation benchmark, most clearly on categories with continuous rotational symmetry.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Education</h2>
+    <div class="body">
+      <div class="entry">
+        <p class="when">2023 &ndash; present</p>
+        <p class="what"><strong>B.S. in Mathematics</strong><span>POSTECH, Pohang, Korea</span></p>
+      </div>
+      <div class="entry">
+        <p class="when">2024 &ndash; present</p>
+        <p class="what"><strong>Undergraduate researcher</strong><span>Computer Vision Lab, POSTECH. Advisor: Minsu Cho</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Elsewhere</h2>
+    <div class="body">
+      <p>I play piano with 한울림 at POSTECH, mostly Brahms, Ravel, Medtner, and whatever York Bowen I can get my hands on. In July 2026 I led POSTECH's four-person delegation to the International Congress of Mathematicians in Philadelphia.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Minjoon Kim · Pohang</span>
+    <span>Last updated August 2026</span>
+  </footer>
+
+</main>
+</body>
+</html>
