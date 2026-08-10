@@ -52,7 +52,7 @@
     grid-template-columns:1fr auto;
     align-items:center;
     gap:2rem;
-    padding:clamp(4rem,12vh,8rem) 0 clamp(3rem,7vh,5rem);
+    padding:clamp(4rem,12vh,8rem) 0 clamp(1.75rem,4vh,3rem);
   }
   .name{
     font-size:clamp(2.9rem,8.5vw,5.25rem);
@@ -87,6 +87,55 @@
     list-style:none;
   }
   .links a{border-bottom-color:#c9c9c9}
+
+  .mail{position:relative}
+  .mail-trigger{
+    font:inherit;
+    color:inherit;
+    background:none;
+    border:0;
+    border-bottom:1px solid #c9c9c9;
+    padding:0;
+    cursor:pointer;
+    transition:border-color .18s ease;
+  }
+  .mail-trigger:hover{border-bottom-color:var(--ink)}
+  .mail-trigger:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .mail-pop{
+    position:absolute;
+    top:calc(100% + .7rem);
+    left:-.85rem;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+    padding:.75rem .85rem;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    white-space:nowrap;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-.25rem);
+    transition:opacity .16s ease,transform .16s ease,visibility .16s;
+  }
+  .mail-pop::before{
+    content:"";
+    position:absolute;
+    top:-4px;
+    left:1.1rem;
+    width:7px;
+    height:7px;
+    background:var(--paper);
+    border-left:1px solid var(--rule);
+    border-top:1px solid var(--rule);
+    transform:rotate(45deg);
+  }
+  .mail:hover .mail-pop,
+  .mail:focus-within .mail-pop{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
 
   /* ── portrait ───────────────────────────────────────────── */
   .portrait{
@@ -217,8 +266,13 @@
       <p class="role">Undergraduate researcher, Computer Vision Lab, POSTECH</p>
       <p class="place">Pohang, South Korea</p>
       <ul class="links">
-        <li><a href="mailto:mjkmszr0613@postech.ac.kr">mjkmszr0613@postech.ac.kr</a></li>
-        <li><a href="mailto:mjkmszr0613@gmail.com">mjkmszr0613@gmail.com</a></li>
+        <li class="mail">
+          <button type="button" class="mail-trigger">Email</button>
+          <span class="mail-pop">
+            <a href="mailto:mjkmszr0613@postech.ac.kr">mjkmszr0613@postech.ac.kr</a>
+            <a href="mailto:mjkmszr0613@gmail.com">mjkmszr0613@gmail.com</a>
+          </span>
+        </li>
         <li><a href="https://github.com/Mjk-123">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/minjoon-kim-252405407">LinkedIn</a></li>
       </ul>
@@ -236,10 +290,9 @@
       <svg class="solid" viewBox="-1.95 -1.95 3.9 3.9" aria-hidden="true"></svg>
     </div>
     <div class="body">
-      <p>I'm a fourth-year math undergrad at POSTECH and an undergraduate researcher in the Computer Vision Lab, advised by Prof. Minsu Cho. I work on geometric representation learning for 3D vision.</p>
-      <p>Shapes show up in arbitrary poses, half observed, and often symmetric enough that there isn't one right answer. Most models learn to cope with this from augmented data, which works until it doesn't. I'd rather put the rotation structure into the architecture so it holds by construction, and spend the model's capacity on the actual problem.</p>
-      <p>Lately that means spectral methods on SO(3) and on the sphere. I like them because you can see what's happening: an object's symmetry group tells you which components it can represent at all, so failures are something you read off instead of guess at. Orientation estimation is where I started. Registration, shape correspondence, and fracture assembly are what I'm looking at now.</p>
-      <p>I came to vision from pure math, and that's still how I read a problem.</p>
+      <p>I'm a fourth-year math undergrad at POSTECH and an undergraduate researcher in the Computer Vision Lab, advised by Prof. Minsu Cho.</p>
+      <p>I want representations of 3D objects that respect the geometry of the object itself. What a model can express should be decided by the shape, not by whatever data it happened to see. Symmetry is a good test of that. If an object has a nontrivial symmetry group there is no single right answer, only an orbit of them, and you can tell in advance whether a representation is able to express it.</p>
+      <p>I came to vision from pure math, mostly topology and representation theory, and that's still how I read a problem.</p>
     </div>
   </section>
 
@@ -262,12 +315,12 @@
     <h2>Education</h2>
     <div class="body">
       <div class="entry">
-        <p class="when">2023 &ndash; present</p>
-        <p class="what"><strong>B.S. in Mathematics</strong><span>POSTECH, Pohang, South Korea</span></p>
-      </div>
-      <div class="entry">
         <p class="when">2025 &ndash; present</p>
         <p class="what"><strong>Undergraduate researcher</strong><span>Computer Vision Lab, POSTECH. Advisor: Minsu Cho</span></p>
+      </div>
+      <div class="entry">
+        <p class="when">2023 &ndash; present</p>
+        <p class="what"><strong>B.S. in Mathematics</strong><span>POSTECH, Pohang, South Korea</span></p>
       </div>
       <div class="entry">
         <p class="when">2020 &ndash; 2022</p>
