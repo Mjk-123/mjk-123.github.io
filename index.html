@@ -93,6 +93,7 @@
   .portrait img{
     display:block;
     width:100%;
+    height:auto;
     aspect-ratio:1;
     object-fit:cover;
     border-radius:50%;
@@ -135,7 +136,7 @@
     padding:clamp(2.75rem,6vh,4rem) 0;
     border-top:1px solid var(--rule);
   }
-  .section > h2{
+  .section h2{
     font-family:var(--mono);
     font-size:.6875rem;
     font-weight:500;
@@ -207,7 +208,7 @@
     .rail{flex-direction:row;align-items:center;gap:.9rem}
     .globe{width:34px}
     .section{grid-template-columns:1fr;gap:1rem}
-    .section > h2{margin-top:0}
+    .section h2{margin-top:0}
     .entry{grid-template-columns:1fr;gap:.15rem}
     .entry .when{padding-top:0}
   }
