@@ -153,15 +153,13 @@
   }
 
   /* ── signature: rotating dodecahedron wireframe ─────────── */
-  .rail{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start;position:relative}
+  .rail{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
   .solid{
     width:66px;
     height:66px;
     overflow:visible;
-  }
-  /* on wide screens the rail stretches to the text block, so 50% centres on it */
-  @media (min-width:721px){
-    .solid{position:absolute;top:50%;left:0;transform:translateY(-50%)}
+    /* the label's trailing letter-spacing sits its glyphs 1.5px left of centre */
+    margin-left:-1.5px;
   }
   .solid line{
     stroke:var(--ink);
